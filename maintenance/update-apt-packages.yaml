@@ -5,3 +5,5 @@
   tasks:
     - name: update apt packages
       command: ls
+      register: out
+    - debug: var=out.stdout_lines
