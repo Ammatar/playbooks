@@ -4,4 +4,4 @@
 
   tasks:
     - name: update apt packages
-      command: sudo apt update
+      command: ls
