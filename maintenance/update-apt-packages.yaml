@@ -1,8 +1,6 @@
 ---
 - hosts: localhost
-
-  become: true
-  become_method: enable
+  connection: local
 
   tasks:
     - name: update apt packages
