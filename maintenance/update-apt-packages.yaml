@@ -4,7 +4,8 @@
   become: true
   tasks:
     - name: ls test
-      command: cd front
-      when: ls
+      command: bash -lc "ls"
       register: out
+      args:
+      chdir: "{{ dir }}/front"
     - debug: var=out.stdout_lines
