@@ -7,5 +7,5 @@
       shell: 
         cmd: ls
         register: out
-        chdir: "{{ dir }}/front"
+        chdir: "/root/front"
     - debug: var=out.stdout_lines
