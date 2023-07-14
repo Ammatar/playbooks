@@ -10,4 +10,4 @@
         chdir: "/root/front"
     - name: debug
       ansible.builtin.debug:
-        msg: {{out}}
+        msg: "{{out}}"
