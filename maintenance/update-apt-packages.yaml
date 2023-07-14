@@ -4,6 +4,8 @@
   become: true
   tasks:
     - name: ls test
+      register: out
       shell: 
         cmd: ls
         chdir: "/root/front"
+      -debug: out
