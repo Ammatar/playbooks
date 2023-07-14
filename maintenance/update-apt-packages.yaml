@@ -8,4 +8,6 @@
       shell: 
         cmd: ls
         chdir: "/root/front"
-      -debug: out
+    - name: debug
+      ansible.builtin.debug:
+        msg: out
