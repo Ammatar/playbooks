@@ -6,6 +6,4 @@
     - name: ls test
       shell: 
         cmd: ls
-        register: out
         chdir: "/root/front"
-    - debug: var=out.stdout_lines
