@@ -9,7 +9,6 @@
         cmd: ls
         chdir: "/root/front"
     - name: pull
-      register: out-pull
       ansible.builtin.git:
         repo: "/root/test-front/front/.git"
         dest: "/root/test-front/front"
@@ -18,6 +17,3 @@
     - name: debug
       ansible.builtin.debug:
         msg: "{{out.stdout}}"
-    - name: debug-pull
-      ansible.builtin.debug:
-        msg: "{{out-pull.stdout}}"
