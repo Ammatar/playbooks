@@ -11,7 +11,7 @@
     - name: pull
       shell: 
         cmd: git pull
-        chdir: "/root/front"
+        chdir: "/root/test-front/front"
     - name: debug
       ansible.builtin.debug:
         msg: "{{out.stdout}}"
