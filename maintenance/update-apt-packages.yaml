@@ -9,9 +9,10 @@
         cmd: ls
         chdir: "/root/front"
     - name: pull
-      shell: 
-        cmd: git pull
-        chdir: "/root/test-front/front"
+      ansible.builtin.git:
+        repo: git@git.lstar.dev:ed/lk_uo/front.git
+        dest: /root/test-front/front
+        update: yes
     - name: debug
       ansible.builtin.debug:
         msg: "{{out.stdout}}"
