@@ -9,7 +9,9 @@
         cmd: ls
         chdir: "/root/front"
     - name: pull
-      command: git pull
+      shell: 
+        cmd: git pull
+        chdir: "/root/front"
     - name: debug
       ansible.builtin.debug:
         msg: "{{out.stdout}}"
