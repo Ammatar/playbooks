@@ -1,0 +1,10 @@
+- hosts: all
+
+  become: true
+  tasks:
+    ansible.builtin.git:
+      repo: "https://{{ gituser | urlencode }}:{{ gitpassword | urlencode }}@{{gitrepo | urlencode}}"
+      dest: "/root/test-front/front"
+      update: yes
+      clone: no
+      version: lstar-develop
