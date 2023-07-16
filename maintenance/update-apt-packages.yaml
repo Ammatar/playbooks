@@ -10,8 +10,8 @@
     - name: pull
       register: out
       git:
-        repo: "{{ git-front }}/.git"
-        dest: "{{ git-front }}"
+        repo: "/root/test-front/front/.git"
+        dest: "/root/test-front/front"
         version: lstar-develop
         update: yes
     - name: debug
