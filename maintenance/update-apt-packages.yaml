@@ -10,8 +10,8 @@
     - name: pull
       register: out
       ansible.builtin.git:
-        repo: "/root/test-front/front/.git"
-        dest: "/root/test-front/front"
+        repo: "{{git-front}}.git"
+        dest: "{{git-front}}"
         version: lstar-develop
         update: yes
     - name: debug
