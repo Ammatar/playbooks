@@ -4,11 +4,11 @@
   become: true
   tasks:
     - name: ls test
-      register: out
       shell: 
         cmd: ls
         chdir: "/root/front"
     - name: pull
+      register: out
       ansible.builtin.git:
         repo: "/root/test-front/front/.git"
         dest: "/root/test-front/front"
