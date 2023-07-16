@@ -16,4 +16,4 @@
         update: yes
     - name: debug
       ansible.builtin.debug:
-        msg: "{{out.stdout}}"
+        msg: "{{out}}"
