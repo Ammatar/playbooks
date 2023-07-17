@@ -1,0 +1,16 @@
+---
+- hosts: all
+
+  become: true
+  tasks:
+    - name: pull
+      register: out
+      git:
+        repo: "{{ gitrepotest }}"
+        dest: "/test"
+        version: main
+        update: yes
+        clone: yes
+    - name: debug
+      ansible.builtin.debug:
+        msg: "{{out}}"
