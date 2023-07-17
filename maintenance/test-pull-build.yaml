@@ -5,11 +5,10 @@
   tasks:
     - name: pull
       register: out
-      git:
-        repo: "/root/test/test/.git"
-        dest: "/root/test/test/"
-        version: main
-        update: yes
+      shell: git pull 
+      args:
+       chdir: "/root/test/test/"
+       executable: /bin/bash
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
