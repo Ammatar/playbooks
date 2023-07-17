@@ -6,7 +6,7 @@
     - name: pull
       register: out
       git:
-        repo: "/test/.git"
+        repo: "/test/test/.git"
         dest: "/test"
         version: main
         update: yes
