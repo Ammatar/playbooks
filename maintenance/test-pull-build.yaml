@@ -5,7 +5,7 @@
   tasks:
     - name: pull
       register: out
-      shell: git pull 
+      shell: git clone "{{ gitrepotest }}"
       args:
        chdir: "/root/test/test"
        executable: /bin/bash
