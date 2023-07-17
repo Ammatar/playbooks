@@ -10,7 +10,6 @@
         dest: "/root/test"
         version: main
         update: yes
-        clone: yes
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
