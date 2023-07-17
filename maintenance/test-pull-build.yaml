@@ -7,7 +7,7 @@
       register: out
       git:
         repo: "/root/test/test/.git"
-        dest: "/root/test"
+        dest: "/root/test/test/"
         version: main
         update: yes
     - name: debug
