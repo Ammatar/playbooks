@@ -5,10 +5,11 @@
   tasks:
     - name: pull
       register: out
-      command: git clone "{{ gitrepotest }}" .
-      args:
-       chdir: "/root/test/"
-       executable: /bin/bash
+      git:
+        repo: git@git.lstar.dev:test/test.git
+        dest: /root/test
+        accept_hostkey: yes
+        key_file: /root/.ssh/playbooks 
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
