@@ -6,7 +6,7 @@
     - name: pull
       register: out
       git:
-        repo: "https://{{ gituser | urlencode }}:{{ gitpassword | urlencode }}@{{ gitrepotest-https | urlencode}}"
+        repo: "/test/.git"
         dest: "/test"
         version: main
         update: yes
