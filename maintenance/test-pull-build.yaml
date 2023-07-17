@@ -9,7 +9,9 @@
         repo: git@git.lstar.dev:test/test.git
         dest: /root/test
         accept_hostkey: yes
-        key_file: /root/.ssh/playbooks 
+        key_file: /root/.ssh/playbooks
+        update: yes
+        clone: yes 
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
