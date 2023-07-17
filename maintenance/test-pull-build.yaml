@@ -7,7 +7,7 @@
       register: out
       shell: git clone "{{ gitrepotest }}"
       args:
-       chdir: "/root/test/test"
+       chdir: "/root/test/"
        executable: /bin/bash
     - name: debug
       ansible.builtin.debug:
