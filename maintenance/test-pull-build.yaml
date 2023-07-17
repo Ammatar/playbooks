@@ -7,7 +7,7 @@
       register: out
       shell: git pull 
       args:
-       chdir: "/root/test/test/"
+       chdir: "/root/test/test"
        executable: /bin/bash
     - name: debug
       ansible.builtin.debug:
