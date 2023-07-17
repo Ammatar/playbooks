@@ -6,8 +6,8 @@
     - name: pull
       register: out
       git:
-        repo: "/test/test/.git"
-        dest: "/test"
+        repo: "/root/test/test/.git"
+        dest: "/root/test"
         version: main
         update: yes
         clone: yes
