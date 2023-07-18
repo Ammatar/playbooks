@@ -15,3 +15,9 @@
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
+    - name: post pull
+      register: regls
+      command: ls
+    - name: debug-1
+      ansible.builtin.debug:
+        msg: "{{regls}}"
