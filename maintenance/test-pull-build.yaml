@@ -17,7 +17,9 @@
         msg: "{{out}}"
     - name: post pull
       register: regls
-      command: ls
+      shell: 
+        cmd: docker-compose build .
+        chdir: "/root/test"
     - name: debug-1
       ansible.builtin.debug:
         msg: "{{regls}}"
