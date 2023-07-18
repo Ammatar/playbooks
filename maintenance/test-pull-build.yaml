@@ -15,7 +15,7 @@
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
-    - name: post pull
+    - name: build 
       register: regls
       shell: 
         cmd: docker-compose build
@@ -23,3 +23,11 @@
     - name: debug-1
       ansible.builtin.debug:
         msg: "{{regls}}"
+    - name: composition up 
+      register: regup
+      shell: 
+        cmd: docker-compose up -d
+        chdir: "/root/test"
+    - name: debug-2
+      ansible.builtin.debug:
+        msg: "{{regup}}"
