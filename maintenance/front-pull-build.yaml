@@ -1,0 +1,33 @@
+- hosts: all
+
+  become: true
+  tasks:
+    - name: pull
+      register: out
+      git:
+        repo: git@git.lstar.dev:ed/lk_uo/front.git
+        dest: /root/test-front/
+        accept_hostkey: yes
+        key_file: /root/.ssh/playbooks
+        version: lstar-develop
+        update: yes
+        clone: yes 
+    - name: debug
+      ansible.builtin.debug:
+        msg: "{{out}}"
+    # - name: build 
+    #   register: regls
+    #   shell: 
+    #     cmd: docker-compose build
+    #     chdir: "/root/test"
+    # - name: debug-1
+    #   ansible.builtin.debug:
+    #     msg: "{{regls}}"
+    # - name: composition up 
+    #   register: regup
+    #   shell: 
+    #     cmd: docker-compose up -d
+    #     chdir: "/root/test"
+    # - name: debug-2
+    #   ansible.builtin.debug:
+    #     msg: "{{regup}}"
