@@ -2,6 +2,16 @@
 
   become: true
   tasks:
+  
+    - name: stash config
+      register: stash
+      shell: 
+        cmd: git stash
+        chdir: "/root/test/front"
+    - name: stash debug
+      ansible.builtin.debug:
+        msg: "{{stash}}"
+
     - name: pull
       register: out
       git:
@@ -15,14 +25,24 @@
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
-    # - name: build 
-    #   register: regls
-    #   shell: 
-    #     cmd: docker-compose build
-    #     chdir: "/root/test"
-    # - name: debug-1
-    #   ansible.builtin.debug:
-    #     msg: "{{regls}}"
+
+    - name: stash config return
+      register: stash-pop
+      shell: 
+        cmd: git stash pop
+        chdir: "/root/test/front"
+    - name: stash debug
+      ansible.builtin.debug:
+        msg: "{{stash-pop}}"
+
+    - name: build 
+      register: regls
+      shell: 
+        cmd: docker-compose build
+        chdir: "/root/test"
+    - name: debug-1
+      ansible.builtin.debug:
+        msg: "{{regls}}"
     # - name: composition up 
     #   register: regup
     #   shell: 
