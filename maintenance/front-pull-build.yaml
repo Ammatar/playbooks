@@ -5,7 +5,7 @@
     - name: pull
       register: out
       git:
-        repo: "{{ git-front-repo }}"
+        repo: git@git.lstar.dev:ed/lk_uo/front.git
         dest: /root/test/front
         accept_hostkey: yes
         key_file: /root/.ssh/playbooks
