@@ -28,22 +28,22 @@
         msg: "{{out}}"
 
     - name: stash config return
-      register: stash-pop
+      register: stashpop
       shell: 
         cmd: git stash pop
         chdir: "/root/test/front"
     - name: stash debug
       ansible.builtin.debug:
-        msg: "{{stash-pop}}"
+        msg: "{{stashpop}}"
 
-    - name: build 
-      register: regls
-      shell: 
-        cmd: docker-compose build
-        chdir: "/root/test"
-    - name: debug-1
-      ansible.builtin.debug:
-        msg: "{{regls}}"
+    # - name: build 
+    #   register: regls
+    #   shell: 
+    #     cmd: docker-compose build
+    #     chdir: "/root/test"
+    # - name: debug-1
+    #   ansible.builtin.debug:
+    #     msg: "{{regls}}"
     # - name: composition up 
     #   register: regup
     #   shell: 
