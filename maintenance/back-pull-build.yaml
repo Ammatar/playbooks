@@ -2,19 +2,43 @@
 
   become: true
   tasks:
+
+    - name: stash config
+      register: stash
+      shell: 
+        cmd: git stash
+        chdir: "/root/test/office"
+    - name: stash debug
+      ansible.builtin.debug:
+        msg: "{{stash}}"
+
     - name: pull
       register: out
       git:
         repo: git@git.lstar.dev:ed/lk_uo/back/office.git
-        dest: /root/test/
+        dest: /root/test/office
         accept_hostkey: yes
         key_file: /root/.ssh/playbooks
         version: lstar-develop
         update: yes
-        clone: yes 
     - name: debug
       ansible.builtin.debug:
         msg: "{{out}}"
+    
+    - name: stash config return
+      register: stashpop
+      shell: 
+        cmd: git stash pop
+        chdir: "/root/test/office"
+    - name: stash debug
+      ansible.builtin.debug:
+        msg: "{{stashpop}}"
+
+    - name: maven build
+      register: mav
+      shell:
+        cmd: mvn clean install
+        chdir: "/root/test/office"
     # - name: build 
     #   register: regls
     #   shell: 
