@@ -36,19 +36,20 @@
       ansible.builtin.debug:
         msg: "{{stashpop}}"
 
-    # - name: build 
-    #   register: regls
-    #   shell: 
-    #     cmd: docker-compose build
-    #     chdir: "/root/test"
-    # - name: debug-1
-    #   ansible.builtin.debug:
-    #     msg: "{{regls}}"
-    # - name: composition up 
-    #   register: regup
-    #   shell: 
-    #     cmd: docker-compose up -d
-    #     chdir: "/root/test"
-    # - name: debug-2
-    #   ansible.builtin.debug:
-    #     msg: "{{regup}}"
+    - name: build 
+      register: regls
+      shell: 
+        cmd: docker-compose build
+        chdir: "/root/test/office"
+    - name: debug-1
+      ansible.builtin.debug:
+        msg: "{{regls}}"
+        
+    - name: composition up 
+      register: regup
+      shell: 
+        cmd: docker-compose up -d
+        chdir: "/root/test/office"
+    - name: debug-2
+      ansible.builtin.debug:
+        msg: "{{regup}}"

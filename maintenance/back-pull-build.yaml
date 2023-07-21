@@ -7,7 +7,7 @@
       register: stash
       shell: 
         cmd: git stash
-        chdir: "/root/test/office"
+        chdir: "/root/office"
     - name: stash debug
       ansible.builtin.debug:
         msg: "{{stash}}"
@@ -16,7 +16,7 @@
       register: out
       git:
         repo: git@git.lstar.dev:ed/lk_uo/back/office.git
-        dest: /root/test/office
+        dest: /root/office
         accept_hostkey: yes
         key_file: /root/.ssh/playbooks
         version: lstar-develop
@@ -29,7 +29,7 @@
       register: stashpop
       shell: 
         cmd: git stash pop
-        chdir: "/root/test/office"
+        chdir: "/root/office"
     - name: stash debug
       ansible.builtin.debug:
         msg: "{{stashpop}}"
@@ -38,20 +38,25 @@
       register: mav
       shell:
         cmd: mvn clean install
-        chdir: "/root/test/office"
-    # - name: build 
-    #   register: regls
-    #   shell: 
-    #     cmd: docker-compose build
-    #     chdir: "/root/test"
-    # - name: debug-1
-    #   ansible.builtin.debug:
-    #     msg: "{{regls}}"
-    # - name: composition up 
-    #   register: regup
-    #   shell: 
-    #     cmd: docker-compose up -d
-    #     chdir: "/root/test"
-    # - name: debug-2
-    #   ansible.builtin.debug:
-    #     msg: "{{regup}}"
+        chdir: "/root/office"
+    - name: maven log
+      ansible.builtin.debug:
+        msg: "{{mav}}"
+
+    - name: build 
+      register: regls
+      shell: 
+        cmd: docker-compose build
+        chdir: "/root/office"
+    - name: debug-1
+      ansible.builtin.debug:
+        msg: "{{regls}}"
+
+    - name: composition up 
+      register: regup
+      shell: 
+        cmd: docker-compose up -d
+        chdir: "/root/office"
+    - name: debug-2
+      ansible.builtin.debug:
+        msg: "{{regup}}"
