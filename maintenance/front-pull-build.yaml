@@ -7,7 +7,7 @@
       register: stash
       shell: 
         cmd: git stash
-        chdir: "/root/test/front"
+        chdir: "/root/front"
     - name: stash debug
       ansible.builtin.debug:
         msg: "{{stash}}"
@@ -16,7 +16,7 @@
       register: out
       git:
         repo: git@git.lstar.dev:ed/lk_uo/front.git
-        dest: /root/test/front
+        dest: /root/front
         accept_hostkey: yes
         key_file: /root/.ssh/playbooks
         version: lstar-develop
@@ -31,7 +31,7 @@
       register: stashpop
       shell: 
         cmd: git stash pop
-        chdir: "/root/test/front"
+        chdir: "/root/front"
     - name: stash debug
       ansible.builtin.debug:
         msg: "{{stashpop}}"
@@ -40,16 +40,16 @@
       register: regls
       shell: 
         cmd: docker-compose build
-        chdir: "/root/test/office"
+        chdir: "/root/office"
     - name: debug-1
       ansible.builtin.debug:
         msg: "{{regls}}"
-        
+
     - name: composition up 
       register: regup
       shell: 
         cmd: docker-compose up -d
-        chdir: "/root/test/office"
+        chdir: "/root/office"
     - name: debug-2
       ansible.builtin.debug:
         msg: "{{regup}}"
