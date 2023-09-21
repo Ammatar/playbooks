@@ -1,5 +1,5 @@
 - hosts: all
-
+  gather_facts: False
   become: true
   tasks:
 
@@ -35,6 +35,15 @@
     - name: stash debug
       ansible.builtin.debug:
         msg: "{{stashpop}}"
+
+    - name: yarn
+      register: yarnlog
+      shell: 
+        cmd: yarn
+        chdir: "/root/front"
+    - name: yarn debug
+      ansible.builtin.debug:
+        msg: "{{yarnlog}}"
 
     - name: build 
       register: regls
